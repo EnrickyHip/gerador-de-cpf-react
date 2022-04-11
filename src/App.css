@@ -19,6 +19,10 @@ body {
   font-size: 1.6rem;
 }
 
+footer {
+  font-size: 1.6rem;
+}
+
 .App {
   text-align: center;
   background-color: var(--background-blue);

@@ -19,6 +19,10 @@ function App() {
         </form>
 
       </main>
+
+      <footer>
+        <p>by: Enricky Hipólito</p>
+      </footer>
     </div>
   );
 }
