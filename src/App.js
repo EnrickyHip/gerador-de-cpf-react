@@ -1,30 +1,42 @@
 import './App.css';
+import { Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>GERAR / VALIDAR CPF</h1>
-      </header>
-      <main className="App-main">
+class App extends Component {
 
-        <form>
+  state = {
+    textInput: ''
+  }
 
-          <div className='flex'>
-            <input className='full-input'></input>
-            <button type="button" className='btn'>Gerar CPF</button>
-            <button type="button" className='btn'>Validar CPF</button>
-          </div>
+  render() {
+    const {textInput} = this.state;
 
-        </form>
+    return (
+      <div className="App">
+        
+        <header className="App-header">
+          <h1>GERAR / VALIDAR CPF</h1>
+        </header>
 
-      </main>
+        <main className="App-main">
+          <form>
 
-      <footer>
-        <p>by: Enricky Hipólito</p>
-      </footer>
-    </div>
-  );
+            <div className='flex'>
+              <input className='full-input' placeholder='Digite um CPF' value={textInput}></input>
+              <button type="button" className='btn'>Gerar CPF</button>
+              <button type="button" className='btn'>Validar CPF</button>
+            </div>
+
+          </form>
+        </main>
+
+        <footer>
+          <p>by: Enricky Hipólito</p>
+        </footer>
+        
+      </div>
+    )
+  }
+
 }
 
 export default App;
