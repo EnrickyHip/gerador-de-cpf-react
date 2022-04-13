@@ -1,4 +1,4 @@
-import './App.css';
+import '../CSS/App.css';
 import { Component} from 'react';
 
 class App extends Component {
