@@ -1,4 +1,6 @@
-class Cpf {
+ import random from "./random.js";
+ 
+ export default class Cpf {
     
     static generate(){
         let cpfString;
@@ -10,7 +12,7 @@ class Cpf {
         
         const firstDigit = Cpf.createDigit(cpfString);
         const secondDigit = Cpf.createDigit(cpfString + firstDigit); // o + concatena o first digit no fim da string
-        return Cpf.format(cpfString + firstDigit + secondDigit);
+        return Cpf.formatCpf(cpfString + firstDigit + secondDigit);
     }
 
 
@@ -55,7 +57,7 @@ class Cpf {
         return sequence === cpf;
     }
 
-    static format(cpf){
+    static formatCpf(cpf){
         return cpf.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4"); //$1, $2, ... -> referem-se a cada parenteses do regex
     }
 }
