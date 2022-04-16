@@ -1,4 +1,4 @@
- import random from "./random.js";
+ import random from "../functions/random.js";
  
  export default class Cpf {
     
