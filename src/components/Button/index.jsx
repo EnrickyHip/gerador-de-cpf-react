@@ -1,3 +1,5 @@
+import "./style.css"
+
 export const Button = ({text, onClick}) => (
   <button 
     onClick = { onClick } 

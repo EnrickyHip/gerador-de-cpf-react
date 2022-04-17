@@ -1,4 +1,5 @@
 import { Button } from "../Button";
+import "./style.css"
 
 export const HomeMain = ({cpfMessage, cpfInput, handleValidate, handleGenerate, typeInput}) => (
   <main>
