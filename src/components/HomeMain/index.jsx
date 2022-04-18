@@ -1,30 +1,59 @@
-import { Button } from "../Button";
 import "./style.css"
 
-export const HomeMain = ({cpfMessage, cpfInput, handleValidate, handleGenerate, typeInput}) => (
-  <main>
-    <form>
+import { Component } from "react";
+import { Button } from "../Button";
+import { Input } from "../Input";
 
-      <div>
-        <input
-          id = 'cpf-input' 
-          className = 'full-input' 
-          placeholder = 'Digite um CPF' 
-          autoComplete='off'
-          value = { cpfInput }
-          maxLength = "14"
-          onChange = { e => typeInput(e.target.value) }> 
-          {/* esse atributo serve para ser possível a alteração do value do input quando o usuário digitar */}
-        </input>
+import Cpf from "../../modules/Cpf";
+import getValidateMessage from '../../functions/getValidateMessage';
 
-        <Button text = "Gerar CPF" onClick = { handleGenerate } /> 
-        <Button text = "Validar CPF" onClick = { handleValidate } />       
+export class HomeMain extends Component {
 
-        <p id='cpf-message'> { cpfMessage } </p>
+  state = {
+    cpfMessage: '',
+    cpfInput: ''
+  }
 
-      </div>
+  handleGenerate = () => {
+    const cpf = Cpf.generate();
+    this.setState({cpfInput : cpf})
+  }
 
-    </form>
-  </main>
-)
+  handleValidate = () => {
+    const message = getValidateMessage();
+    this.setState({
+      cpfMessage: message
+    });
+  }
+
+  typeInput = event => {
+    const {value} = event.target
+
+    this.setState({
+      cpfInput: value
+    });
+  }
+
+  render(){
+    const {cpfMessage, cpfInput} = this.state;
+
+    return (
+      
+      <main>
+        <form>
+          <div>
+
+            <Input cpfInput = {cpfInput} typeInput = {this.typeInput}/>
+
+            <Button text = "Gerar CPF" onClick = { this.handleGenerate } /> 
+            <Button text = "Validar CPF" onClick = { this.handleValidate } />       
+
+            <p id='cpf-message'> { cpfMessage } </p>
+
+          </div>
+        </form>
+      </main>
+    )
+  }
+}
 
