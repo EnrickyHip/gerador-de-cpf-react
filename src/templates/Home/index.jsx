@@ -1,4 +1,5 @@
 import './style.css';
+
 import { Component } from 'react';
 import { HomeMain } from '../../components/HomeMain';
 import { Header } from '../../components/Header';
