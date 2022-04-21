@@ -1,6 +1,6 @@
 import Cpf from "../modules/Cpf";
 
-export default () => {
+export const getValidateMessage = () => {
   const cpfInput = document.querySelector("#cpf-input").value;
   const valid = Cpf.validate(cpfInput);
 

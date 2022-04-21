@@ -5,7 +5,7 @@ import { Button } from "../Button";
 import { Input } from "../Input";
 
 import Cpf from "../../modules/Cpf";
-import getValidateMessage from '../../functions/getValidateMessage';
+import { getValidateMessage } from '../../functions/getValidateMessage';
 
 export class HomeMain extends Component {
 
