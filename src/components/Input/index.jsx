@@ -1,6 +1,6 @@
 import "./style.css"
 
-export const Input = ({cpfInput, typeInput}) => (
+export const Input = ({cpfInput, handleChange}) => (
   <input
     id = 'cpf-input' 
     className = 'full-input' 
@@ -8,7 +8,7 @@ export const Input = ({cpfInput, typeInput}) => (
     autoComplete='off'
     value = { cpfInput }
     maxLength = "14"
-    onChange = { typeInput }> 
+    onChange = { handleChange }> 
     {/* esse atributo serve para ser possível a alteração do value do input quando o usuário digitar */}
   </input>
 )

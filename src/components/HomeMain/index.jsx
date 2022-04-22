@@ -27,7 +27,7 @@ export class HomeMain extends Component {
     });
   }
 
-  typeInput = event => {
+  handleChange = event => {
     const {value} = event.target
 
     this.setState({
@@ -39,12 +39,11 @@ export class HomeMain extends Component {
     const {cpfMessage, cpfInput} = this.state;
 
     return (
-      
       <main>
         <form>
           <div>
 
-            <Input cpfInput = {cpfInput} typeInput = {this.typeInput}/>
+            <Input cpfInput = {cpfInput} handleChange = {this.handleChange}/>
 
             <Button text = "Gerar CPF" onClick = { this.handleGenerate } /> 
             <Button text = "Validar CPF" onClick = { this.handleValidate } />       
