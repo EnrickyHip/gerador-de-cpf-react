@@ -6,6 +6,7 @@ import { Input } from "../Input";
 
 import Cpf from "../../modules/Cpf";
 import { getValidateMessage } from '../../functions/getValidateMessage';
+import { Message } from "../Message";
 
 export class HomeMain extends Component {
 
@@ -48,7 +49,7 @@ export class HomeMain extends Component {
             <Button text = "Gerar CPF" onClick = { this.handleGenerate } /> 
             <Button text = "Validar CPF" onClick = { this.handleValidate } />       
 
-            <p id='cpf-message'> { cpfMessage } </p>
+            <Message message = {cpfMessage} />
 
           </div>
         </form>
