@@ -4,6 +4,6 @@ export const getValidateMessage = () => {
   const cpfInput = document.querySelector("#cpf-input").value;
   const valid = Cpf.validate(cpfInput);
 
-  if (valid) return "CPF válido"
-  return "CPF inválido"
-} 
+  if (valid) return "CPF válido";
+  return "CPF inválido";
+};

@@ -12,7 +12,7 @@ export class HomeMain extends Component {
 
   state = {
     cpfMessage: '',
-    cpfInput: ''
+    cpfInput: '',
   }
 
   handleGenerate = () => {
@@ -23,7 +23,7 @@ export class HomeMain extends Component {
   handleValidate = () => {
     const message = getValidateMessage();
     this.setState({
-      cpfMessage: message
+      cpfMessage: message,
     });
   }
 
@@ -31,7 +31,7 @@ export class HomeMain extends Component {
     const {value} = event.target
 
     this.setState({
-      cpfInput: value
+      cpfInput: value,
     });
   }
 
@@ -43,12 +43,12 @@ export class HomeMain extends Component {
         <form>
           <div>
 
-            <Input cpfInput = {cpfInput} handleChange = {this.handleChange}/>
+            <Input textInput={cpfInput} handleChange={this.handleChange}/>
 
-            <Button text = "Gerar CPF" onClick = { this.handleGenerate } /> 
-            <Button text = "Validar CPF" onClick = { this.handleValidate } />       
+            <Button text="Gerar CPF" onClick={this.handleGenerate} />
+            <Button text="Validar CPF" onClick={this.handleValidate} />
 
-            <Message message = {cpfMessage} />
+            <Message message={cpfMessage} />
 
           </div>
         </form>
