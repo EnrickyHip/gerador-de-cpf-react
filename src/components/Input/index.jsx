@@ -15,10 +15,6 @@ export const Input = ({ textInput = "", handleChange }) => (
   </input>
 );
 
-Input.defaultProps = {
-  textInput: "",
-};
-
 Input.propTypes = {
   textInput: P.string,
   handleChange: P.func.isRequired,
