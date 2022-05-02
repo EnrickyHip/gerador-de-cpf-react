@@ -3,11 +3,11 @@ import P from "prop-types";
 
 import InputMask from "react-input-mask";
 
-export const Input = ({ textInput = "", handleChange }) => (
+export const Input = ({ valid = "", textInput = "", handleChange }) => (
   <InputMask
     mask="999.999.999-99"
     id="cpf-input"
-    className="full-input"
+    className={`full-input ${valid}`}
     placeholder="Digite um CPF"
     autoComplete="off"
     value={textInput}
@@ -17,5 +17,6 @@ export const Input = ({ textInput = "", handleChange }) => (
 
 Input.propTypes = {
   textInput: P.string,
+  valid: P.string,
   handleChange: P.func.isRequired,
 };

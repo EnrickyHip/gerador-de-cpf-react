@@ -27,9 +27,18 @@ describe("<Input />", () => {
     expect(input).toBeInTheDocument;
   });
 
+  it("should render with the class 'valid'", () => {
+    const fn = jest.fn();
+    render(<Input valid="valid" textInput="12345678900" handleChange={fn} />);
+
+    const input = screen.getByPlaceholderText(/digite um CPF/i);
+
+    expect(input).toHaveClass("valid");
+  });
+
   it("should match snapshot", () => {
     const fn = jest.fn();
-    const { container } = render(<Input textInput="12345678900" handleChange={fn} />);
+    const { container } = render(<Input valid="invalid" textInput="12345678900" handleChange={fn} />);
 
     expect(container.firstChild).toMatchSnapshot();
   });

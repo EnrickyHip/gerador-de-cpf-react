@@ -12,6 +12,7 @@ import { Message } from "../Message";
 export function HomeMain() {
   const [cpfMessage, setMessage] = useState("");
   const [cpfInput, setInput] = useState("");
+  const [isValid, setIsValid] = useState("");
 
   const handleGenerate = () => {
     const cpf = Cpf.generate();
@@ -19,7 +20,10 @@ export function HomeMain() {
   };
 
   const handleValidate = () => {
-    const message = getValidateMessage();
+    const valid = Cpf.validate(cpfInput);
+    const message = getValidateMessage(valid);
+
+    setIsValid(valid ? "valid" : "invalid");
     setMessage(message);
   };
 
@@ -30,9 +34,9 @@ export function HomeMain() {
 
   return (
     <main>
-      <form>
+      <form onSubmit={(event) => event.preventDefault()}>
         <div>
-          <Input textInput={cpfInput} handleChange={handleChange} />
+          <Input valid={isValid} textInput={cpfInput} handleChange={handleChange} />
 
           <Button text="Gerar CPF" onClick={handleGenerate} />
           <Button text="Validar CPF" onClick={handleValidate} />
