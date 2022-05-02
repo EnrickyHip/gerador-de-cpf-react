@@ -29,9 +29,7 @@ describe("<Input />", () => {
 
   it("should match snapshot", () => {
     const fn = jest.fn();
-    const { container } = render(
-      <Input textInput="123.456.789-00" handleChange={fn} />
-    );
+    const { container } = render(<Input textInput="123.456.789-00" handleChange={fn} />);
 
     expect(container.firstChild).toMatchSnapshot();
   });

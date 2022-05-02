@@ -7,5 +7,5 @@ ReactDOM.render(
   <React.StrictMode>
     <Home />
   </React.StrictMode>,
-  document.querySelector("#root")
+  document.querySelector("#root"),
 );
