@@ -5,7 +5,6 @@ exports[`<Input /> should match snapshot 1`] = `
   autocomplete="off"
   class="full-input"
   id="cpf-input"
-  maxlength="14"
   placeholder="Digite um CPF"
   value="123.456.789-00"
 />

@@ -4,7 +4,7 @@ import { Input } from ".";
 
 describe("<Input />", () => {
   it("should call handleChange on each key pressed", () => {
-    const text = "value";
+    const text = "123";
     const fn = jest.fn();
 
     render(<Input handleChange={fn} />);
@@ -12,7 +12,7 @@ describe("<Input />", () => {
     const input = screen.getByPlaceholderText(/digite um CPF/i);
     userEvent.type(input, text);
 
-    expect(fn).toBeCalledTimes(5);
+    expect(fn).toBeCalledTimes(4);
   });
 
   /* ------------------------------------------------------- */
@@ -20,7 +20,7 @@ describe("<Input />", () => {
   it('should render with the value "123.456.789-00"', () => {
     const fn = jest.fn();
 
-    render(<Input textInput="123.456.789-00" handleChange={fn} />);
+    render(<Input textInput="12345678900" handleChange={fn} />);
 
     const input = screen.getByDisplayValue("123.456.789-00");
 
@@ -29,7 +29,7 @@ describe("<Input />", () => {
 
   it("should match snapshot", () => {
     const fn = jest.fn();
-    const { container } = render(<Input textInput="123.456.789-00" handleChange={fn} />);
+    const { container } = render(<Input textInput="12345678900" handleChange={fn} />);
 
     expect(container.firstChild).toMatchSnapshot();
   });

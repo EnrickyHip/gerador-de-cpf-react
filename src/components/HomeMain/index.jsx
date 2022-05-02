@@ -1,12 +1,13 @@
 import "./style.css";
 
+import { useState } from "react";
+
 import { Button } from "../Button";
 import { Input } from "../Input";
 
 import Cpf from "../../modules/Cpf";
 import { getValidateMessage } from "../../functions/getValidateMessage";
 import { Message } from "../Message";
-import { useState } from "react";
 
 export function HomeMain() {
   const [cpfMessage, setMessage] = useState("");

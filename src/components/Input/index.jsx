@@ -1,18 +1,18 @@
 import "./style.css";
 import P from "prop-types";
 
+import InputMask from "react-input-mask";
+
 export const Input = ({ textInput = "", handleChange }) => (
-  <input
+  <InputMask
+    mask="999.999.999-99"
     id="cpf-input"
     className="full-input"
     placeholder="Digite um CPF"
     autoComplete="off"
     value={textInput}
-    maxLength="14"
     onChange={handleChange}
-  >
-    {/* esse atributo serve para ser possível a alteração do value do input quando o usuário digitar */}
-  </input>
+  />
 );
 
 Input.propTypes = {

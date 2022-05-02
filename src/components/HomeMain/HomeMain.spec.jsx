@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { HomeMain } from ".";
 
@@ -34,7 +34,7 @@ describe("<Button />", () => {
     const input = screen.getByPlaceholderText(/digite um cpf/i);
     const validateButton = screen.getByRole("button", { name: /validar cpf/i });
 
-    userEvent.type(input, "455.185.758-07");
+    fireEvent.change(input, { target: { value: "45518575807" } });
     expect(input.value).toBe("455.185.758-07");
 
     userEvent.click(validateButton);
