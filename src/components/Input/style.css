@@ -8,7 +8,6 @@ input {
   font-size: 2.5rem;
   padding: 1.5rem;
   text-align: center;
-  outline: none;
 }
 
 .valid{
@@ -18,3 +17,10 @@ input {
 .invalid{
   box-shadow: 0 0 4px 3px red;
 }
+
+@media (max-width: 700px) {
+  .full-input {
+    margin: 1rem 0;
+  }
+}
+

@@ -20,7 +20,7 @@ describe("<Input />", () => {
   it('should render with the value "123.456.789-00"', () => {
     const fn = jest.fn();
 
-    render(<Input textInput="12345678900" handleChange={fn} />);
+    render(<Input cpfValue="12345678900" handleChange={fn} />);
 
     const input = screen.getByDisplayValue("123.456.789-00");
 
@@ -29,7 +29,7 @@ describe("<Input />", () => {
 
   it("should render with the class 'valid'", () => {
     const fn = jest.fn();
-    render(<Input valid="valid" textInput="12345678900" handleChange={fn} />);
+    render(<Input valid="valid" cpfValue="12345678900" handleChange={fn} />);
 
     const input = screen.getByPlaceholderText(/digite um CPF/i);
 
@@ -38,7 +38,7 @@ describe("<Input />", () => {
 
   it("should match snapshot", () => {
     const fn = jest.fn();
-    const { container } = render(<Input valid="invalid" textInput="12345678900" handleChange={fn} />);
+    const { container } = render(<Input valid="invalid" cpfValue="12345678900" handleChange={fn} />);
 
     expect(container.firstChild).toMatchSnapshot();
   });
