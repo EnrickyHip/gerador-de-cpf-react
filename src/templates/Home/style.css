@@ -9,4 +9,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 5rem 0;
 }
+
+header {
+  margin: 0 7%;
+}
+

@@ -8,19 +8,20 @@ import { Input } from "../Input";
 import Cpf from "../../modules/Cpf";
 import { getValidateMessage } from "../../functions/getValidateMessage";
 import { Message } from "../Message";
+import { onlyNumbers } from "../../functions/onlyNumbers";
 
 export function HomeMain() {
   const [cpfMessage, setMessage] = useState("");
-  const [cpfInput, setInput] = useState("");
+  const [cpfValue, setCpfValue] = useState("");
   const [isValid, setIsValid] = useState("");
 
   const handleGenerate = () => {
     const cpf = Cpf.generate();
-    setInput(cpf);
+    setCpfValue(onlyNumbers(cpf));
   };
 
   const handleValidate = () => {
-    const valid = Cpf.validate(cpfInput);
+    const valid = Cpf.validate(cpfValue);
     const message = getValidateMessage(valid);
 
     setIsValid(valid ? "valid" : "invalid");
@@ -29,14 +30,14 @@ export function HomeMain() {
 
   const handleChange = (event) => {
     const { value } = event.target;
-    setInput(value);
+    setCpfValue(onlyNumbers(value));
   };
 
   return (
     <main>
       <form onSubmit={(event) => event.preventDefault()}>
-        <div>
-          <Input valid={isValid} textInput={cpfInput} handleChange={handleChange} />
+        <div id="container-box">
+          <Input valid={isValid} cpfValue={cpfValue} handleChange={handleChange} />
 
           <Button text="Gerar CPF" onClick={handleGenerate} />
           <Button text="Validar CPF" onClick={handleValidate} />

@@ -1,3 +1,9 @@
-form {
+#container-box {
   padding: 10rem;
+}
+
+@media (max-width: 700px) {
+  #container-box {
+    padding: 5rem 7%;
+  }
 }

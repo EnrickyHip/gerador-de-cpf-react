@@ -34,7 +34,8 @@ describe("<Button />", () => {
     const input = screen.getByPlaceholderText(/digite um cpf/i);
     const validateButton = screen.getByRole("button", { name: /validar cpf/i });
 
-    fireEvent.change(input, { target: { value: "45518575807" } });
+    fireEvent.change(input, { target: { value: "45518575807" } }); //por alguma razão somente funciona com fire event.
+    //userEvent.type(input, "45518575807");
     expect(input.value).toBe("455.185.758-07");
 
     userEvent.click(validateButton);
