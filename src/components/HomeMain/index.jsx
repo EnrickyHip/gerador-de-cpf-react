@@ -8,8 +8,7 @@ import { Input } from "../Input";
 import Cpf from "../../modules/Cpf";
 import { getValidateMessage } from "../../functions/getValidateMessage";
 import { Message } from "../Message";
-
-const onlyNumbers = (string) => string.replace(/\D/g, "");
+import { onlyNumbers } from "../../functions/onlyNumbers";
 
 export function HomeMain() {
   const [cpfMessage, setMessage] = useState("");
