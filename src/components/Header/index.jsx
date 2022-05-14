@@ -1,5 +1,7 @@
-export const Header = () => (
-  <header>
-    <h1>GERAR / VALIDAR CPF</h1>
-  </header>
-);
+import P from "prop-types";
+
+export const Header = ({ children }) => <header>{children}</header>;
+
+Header.propTypes = {
+  children: P.node.isRequired,
+};

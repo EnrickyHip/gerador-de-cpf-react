@@ -7,7 +7,7 @@ import { Input } from "../Input";
 
 import Cpf from "../../modules/Cpf";
 import { getValidateMessage } from "../../functions/getValidateMessage";
-import { Message } from "../Message";
+import { P } from "../P";
 import { onlyNumbers } from "../../functions/onlyNumbers";
 
 export function HomeMain() {
@@ -39,10 +39,10 @@ export function HomeMain() {
         <div id="container-box">
           <Input valid={isValid} cpfValue={cpfValue} handleChange={handleChange} />
 
-          <Button text="Gerar CPF" onClick={handleGenerate} />
-          <Button text="Validar CPF" onClick={handleValidate} />
+          <Button onClick={handleGenerate}>Gerar CPF</Button>
+          <Button onClick={handleValidate}>Validar CPF</Button>
 
-          <Message message={cpfMessage} />
+          <P className="message">{cpfMessage}</P>
         </div>
       </form>
     </main>

@@ -1,13 +1,13 @@
 import "./style.css";
 import P from "prop-types";
 
-export const Button = ({ text, onClick }) => (
+export const Button = ({ children, onClick }) => (
   <button onClick={onClick} type="button" className="btn">
-    {text}
+    {children}
   </button>
 );
 
 Button.propTypes = {
-  text: P.string.isRequired,
+  children: P.node.isRequired,
   onClick: P.func.isRequired,
 };
