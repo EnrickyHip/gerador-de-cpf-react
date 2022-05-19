@@ -5,6 +5,7 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { P } from "../../components/P";
 import { H1 } from "../../components/H1";
+import { CpfContextProvider } from "../../contexts/CpfContext";
 
 export default function Home() {
   return (
@@ -13,7 +14,9 @@ export default function Home() {
         <H1>GERAR / VALIDAR CPF</H1>
       </Header>
 
-      <HomeMain />
+      <CpfContextProvider>
+        <HomeMain />
+      </CpfContextProvider>
 
       <Footer>
         <P>by: Enricky Hipólito</P>
