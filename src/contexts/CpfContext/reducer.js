@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes";
+import { initialState } from "./initialState";
 
-export const reducer = (state, action) => {
+export const reducer = (state = { ...initialState }, action) => {
   switch (action.type) {
     case actionTypes.GENERATE_CPF:
       return { ...state, cpfValue: action.payload };

@@ -1,17 +1,15 @@
-import { createContext, useContext, useReducer, useRef } from "react";
+import { useRef } from "react";
 import P from "prop-types";
-import { initialState } from "./initialState";
+import { configureStore } from "@reduxjs/toolkit";
 import { reducer } from "./reducer";
 import { buildActions } from "./buildActions";
+import { useSelector, useDispatch } from "react-redux";
+import { Provider } from "react-redux";
 
-export const Context = createContext();
+const store = configureStore({ reducer });
 
 export const CpfContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const actionsRef = useRef(buildActions(dispatch));
-  const actions = actionsRef.current;
-
-  return <Context.Provider value={[state, actions]}>{children}</Context.Provider>;
+  return <Provider store={store}>{children}</Provider>;
 };
 
 CpfContextProvider.propTypes = {
@@ -19,11 +17,11 @@ CpfContextProvider.propTypes = {
 };
 
 export const useCpfContext = () => {
-  const context = useContext(Context);
+  const dispatch = useDispatch();
+  const actions = useRef(buildActions(dispatch));
+  const context = useSelector((state) => state);
 
-  if (!context) {
-    throw new Error("You should use useCpfContext inside a CpfContextProvider");
-  }
+  if (!context) throw new Error("You should use useCpfContext inside a CpfContextProvider");
 
-  return [...context];
+  return [context, actions.current];
 };
