@@ -5,7 +5,7 @@ import { Button } from ".";
 describe("<Button />", () => {
   it("should render the button with the text 'Test'", () => {
     const fn = jest.fn();
-    render(<Button text="Test" onClick={fn} />);
+    render(<Button onButtonClick={fn}>Test</Button>);
     const button = screen.getByRole("button", { name: /test/i });
 
     expect(button).toBeInTheDocument();
@@ -13,9 +13,9 @@ describe("<Button />", () => {
 
   /* -------------------------------- */
 
-  it("should call function onClick", () => {
+  it("should call function onButtonClick", () => {
     const fn = jest.fn();
-    render(<Button text="Test" onClick={fn} />);
+    render(<Button onButtonClick={fn}>Test</Button>);
 
     const button = screen.getByRole("button", { name: /test/i });
     userEvent.click(button);
@@ -27,7 +27,7 @@ describe("<Button />", () => {
 
   it("should match snapshot", () => {
     const fn = jest.fn();
-    const { container } = render(<Button text="Test" onClick={fn} />);
+    const { container } = render(<Button onButtonClick={fn}>Test</Button>);
 
     expect(container.firstChild).toMatchSnapshot();
   });

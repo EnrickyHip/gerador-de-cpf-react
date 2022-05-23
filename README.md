@@ -1,3 +1,3 @@
-# Gerador e Validador de CPF (Cadastro de pessoa física) utilizando React Hooks.
+# Validador de CPF (Cadastro de Pessoa Física)
 
-Link na web: https://gerador-de-cpf-enricky.netlify.app/
+Feito com React.

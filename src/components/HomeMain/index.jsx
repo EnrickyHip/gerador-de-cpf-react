@@ -1,48 +1,23 @@
 import "./style.css";
 
-import { useState } from "react";
-
 import { Button } from "../Button";
 import { Input } from "../Input";
-
-import Cpf from "../../modules/Cpf";
-import { getValidateMessage } from "../../functions/getValidateMessage";
-import { Message } from "../Message";
-import { onlyNumbers } from "../../functions/onlyNumbers";
+import { P } from "../P";
+import { useCpfContext } from "../../contexts/CpfContext";
 
 export function HomeMain() {
-  const [cpfMessage, setMessage] = useState("");
-  const [cpfValue, setCpfValue] = useState("");
-  const [isValid, setIsValid] = useState("");
-
-  const handleGenerate = () => {
-    const cpf = Cpf.generate();
-    setCpfValue(onlyNumbers(cpf));
-  };
-
-  const handleValidate = () => {
-    const valid = Cpf.validate(cpfValue);
-    const message = getValidateMessage(valid);
-
-    setIsValid(valid ? "valid" : "invalid");
-    setMessage(message);
-  };
-
-  const handleChange = (event) => {
-    const { value } = event.target;
-    setCpfValue(onlyNumbers(value));
-  };
+  const [state, actions] = useCpfContext();
 
   return (
     <main>
       <form onSubmit={(event) => event.preventDefault()}>
         <div id="container-box">
-          <Input valid={isValid} cpfValue={cpfValue} handleChange={handleChange} />
+          <Input />
 
-          <Button text="Gerar CPF" onClick={handleGenerate} />
-          <Button text="Validar CPF" onClick={handleValidate} />
+          <Button onButtonClick={actions.generateCpf}>Gerar CPF</Button>
+          <Button onButtonClick={() => actions.validateCpf(state.cpfValue)}>Validar CPF</Button>
 
-          <Message message={cpfMessage} />
+          <P className="message">{state.cpfMessage}</P>
         </div>
       </form>
     </main>
