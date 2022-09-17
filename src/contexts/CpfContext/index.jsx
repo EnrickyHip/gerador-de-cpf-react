@@ -3,8 +3,7 @@ import P from "prop-types";
 import { configureStore } from "@reduxjs/toolkit";
 import { reducer } from "./reducer";
 import { buildActions } from "./buildActions";
-import { useSelector, useDispatch } from "react-redux";
-import { Provider } from "react-redux";
+import { useSelector, useDispatch, Provider } from "react-redux";
 
 const store = configureStore({ reducer });
 

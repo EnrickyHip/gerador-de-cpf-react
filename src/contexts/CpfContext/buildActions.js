@@ -1,4 +1,4 @@
-import Cpf from "../../modules/Cpf";
+import Cpf from "cpf-manager";
 import * as actionTypes from "./actionTypes";
 import { onlyNumbers } from "./../../functions/onlyNumbers";
 
